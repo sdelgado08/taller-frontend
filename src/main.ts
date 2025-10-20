@@ -14,6 +14,8 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(process.env.PORT ?? 3000);
+  // Escuchar en PORT si está definido, si no usar 3001 por defecto
+  const port = process.env.PORT ? Number(process.env.PORT) : 3001;
+  await app.listen(port);
 }
 bootstrap().catch((error) => console.error(error));
